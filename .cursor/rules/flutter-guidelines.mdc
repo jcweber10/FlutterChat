@@ -1,0 +1,96 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Flutter Project Guidelines
+
+## Project Structure
+- Main application code is in the `lib` directory
+- Follow the feature-first architecture pattern
+- Each feature should have its own directory with the following structure:
+  - `presentation/` - UI components and screens
+  - `domain/` - Business logic and models
+  - `data/` - Data sources and repositories
+
+## State Management
+- Use Riverpod for state management
+- Prefer `@riverpod` annotation for generating providers
+- Use `AsyncNotifierProvider` and `NotifierProvider` over `StateProvider`
+- Avoid `StateProvider`, `StateNotifierProvider`, and `ChangeNotifierProvider`
+
+## Code Style
+- Use const constructors for immutable widgets
+- Use immutable state classes with proper copy methods
+- Use arrow syntax for simple functions
+- Keep lines under 80 characters
+- Use trailing commas for better formatting
+
+## Error Handling
+- Use `SelectableText.rich` for error display instead of SnackBars
+- Implement proper error states with `AsyncValue`
+- Handle empty states within the displaying screen
+- Use proper error handling for Supabase operations
+
+## Widget Guidelines
+- Create small, private widget classes
+- Use `ConsumerWidget` with Riverpod for state-dependent widgets
+- Implement `RefreshIndicator` for pull-to-refresh functionality
+- Always include `errorBuilder` for `Image.network`
+
+## Database Conventions
+- Include `createdAt`, `updatedAt`, and `isDeleted` fields in database tables
+- Use `@JsonSerializable(fieldRename: FieldRename.snake)` for models
+- Implement `@JsonKey(includeFromJson: true, includeToJson: false)` for read-only fields
+- Use `@JsonValue(int)` for enums that go to the database
+
+## Performance
+- Use const widgets where possible
+- Implement list view optimizations with `ListView.builder`
+- Use `AssetImage` for static images
+- Use `cached_network_image` for remote images
+
+## Navigation
+- Use GoRouter or auto_route for navigation
+- Implement proper deep linking support
+- Handle navigation state properly
+
+## Documentation
+- Document complex logic and non-obvious decisions
+- Follow official Flutter, Riverpod, and Supabase documentation
+- Use proper code comments for complex operations
+
+## Code Generation
+- Run `flutter pub run build_runner build --delete-conflicting-outputs` after modifying annotated classes
+- Keep generated files in sync with source files
+- Use proper annotations for code generation
+
+## Testing
+- Write unit tests for business logic
+- Implement widget tests for UI components
+- Use proper test coverage tools
+- Follow the Arrange-Act-Assert pattern
+
+## Dependencies
+- Keep dependencies up to date
+- Use specific version constraints
+- Document dependency purposes
+- Minimize external dependencies
+
+## Security
+- Never commit sensitive data
+- Use proper environment variables
+- Implement proper authentication flows
+- Follow security best practices for Supabase
+
+## Accessibility
+- Implement proper semantic labels
+- Support screen readers
+- Use proper contrast ratios
+- Support different text sizes
+
+## Internationalization
+- Use proper i18n patterns
+- Support RTL layouts
+- Use proper date and number formatting
+- Implement proper text direction handling
