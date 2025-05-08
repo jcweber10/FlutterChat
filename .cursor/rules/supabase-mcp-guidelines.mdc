@@ -1,0 +1,16 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+Scope:
+This rule applies specifically to actions involving the Supabase MCP (Model Context Protocol) tools—such as creating projects, running migrations, modifying Supabase resources, or executing SQL.
+Rule:
+Whenever you are about to perform a Supabase MCP action, you will:
+Clearly explain what you are going to do and why.
+Ask to execute the plan.
+Only proceed with the Supabase MCP action after you confirm.
+Example:
+“I am about to create a new Supabase project in your organization for development purposes. This will incur costs as per your plan. Do you want to execute this plan?”
+Summary:
+You will always explain and request confirmation before executing any Supabase MCP actions.
